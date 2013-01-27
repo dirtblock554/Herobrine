@@ -12,11 +12,7 @@ public class ActionPlaceTorch implements IAction {
     }
 
     @Override
-    public boolean callCommand(String[] command) {
-        if (command.length == 2 && command[1].equalsIgnoreCase("placetorch")) {
-            
-            return true;
-        }
+    public boolean callCommand(String[] command, Player player) {
         return false;
     }
 }

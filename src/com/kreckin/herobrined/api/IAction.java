@@ -6,5 +6,5 @@ public interface IAction {
 
     public IActionResult callAction(Player player);
     
-    public boolean callCommand(String[] command) throws Exception;
+    public boolean callCommand(String[] command, Player player) throws Exception;
 }
