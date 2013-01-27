@@ -1,5 +1,7 @@
-package com.kreckin.herobrined;
+package com.kreckin.herobrined.listeners;
 
+import com.kreckin.herobrined.Herobrined;
+import com.kreckin.herobrined.Logger;
 import com.kreckin.herobrined.api.IAction;
 import com.kreckin.herobrined.api.IActionResult;
 import java.util.logging.Level;
@@ -19,7 +21,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 1 && strings[0].equalsIgnoreCase("help")) {
             String knownActions = "[Herobrined] Known actions: ";
-            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrined.getHerobrined().getActionManager().getRegisteredActions()) {
                 knownActions += action.getClass().getSimpleName() + ", ";
             }
             knownActions = knownActions.substring(0, knownActions.length() - 2);
@@ -27,7 +29,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 2) {
             IAction foundAction = null;
-            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrined.getHerobrined().getActionManager().getRegisteredActions()) {
                 if (action.getClass().getSimpleName().equalsIgnoreCase(strings[0])) {
                     foundAction = action;
                     break;
@@ -38,7 +40,7 @@ public class CommandListener implements CommandExecutor {
                 if (player == null) {
                     cs.sendMessage("[Herobrined] Unknown player!");
                 } else {
-                    IActionResult result = foundAction.callAction(player);
+                    IActionResult result = foundAction.checkAction(player, null);
                     cs.sendMessage("[Herobrined] " + result.getMessage());
                     if (result.getData() != null) {
                         cs.sendMessage(result.getData());
