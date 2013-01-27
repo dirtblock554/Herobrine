@@ -17,7 +17,7 @@ public class CommandListener implements CommandExecutor {
             Logger.log("You can only use these commands if you are a player!", Level.WARNING);
             return true;
         }
-        if (strings.length >= 1 && strings[0].equalsIgnoreCase("help")) {
+        if (strings.length == 1 && strings[0].equalsIgnoreCase("help")) {
             String knownActions = "[Herobrined] Known actions: ";
             for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
                 knownActions += action.getClass().getSimpleName() + ", ";
@@ -45,10 +45,10 @@ public class CommandListener implements CommandExecutor {
                     }
                 }
             } else {
-                cs.sendMessage("[Herobrined] Unknown action! Type /hb help for all actions!");
+                cs.sendMessage("[Herobrined] Unknown action! Type \"/hb help\" for all actions!");
             }
         } else {
-            cs.sendMessage("[Herobrined] You must supply an action and an username!");
+            cs.sendMessage("[Herobrined] Run an action with \"/hb action\" username, or type \"/hb help\" for all actions!");
         }
         return true;
     }
