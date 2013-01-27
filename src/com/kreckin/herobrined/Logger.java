@@ -1,15 +1,11 @@
 package com.kreckin.herobrined;
 
+import java.util.logging.Level;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 
 public class Logger {
 
-    public static java.util.logging.Logger getLogger() {
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("Herobrined");
-        if (plugin == null) {
-            return Bukkit.getLogger();
-        }
-        return plugin.getLogger();
+    public static void log(String message, Level level) {
+        Bukkit.getLogger().log(level, "[Herobrine] {0}", message);
     }
 }
