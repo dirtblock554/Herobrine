@@ -1,7 +1,6 @@
 package com.kreckin.herobrined.listeners;
 
 import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.Logger;
 import com.kreckin.herobrined.api.IAction;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.util.Util;
@@ -17,7 +16,7 @@ public class CommandListener implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender cs, Command cmnd, String string, String[] strings) {
         if (!(cs instanceof Player)) {
-            Logger.log("You can only use these commands if you are a player!", Level.WARNING);
+            Herobrined.log("You can only use these commands if you are a player!", Level.WARNING);
             return true;
         }
         if (!cs.hasPermission("herobrine.commands") && !cs.isOp()) {

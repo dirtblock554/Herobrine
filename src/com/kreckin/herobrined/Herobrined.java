@@ -7,9 +7,12 @@ import com.kreckin.herobrined.actions.PlaceTorch;
 import com.kreckin.herobrined.impl.ActionManager;
 import com.kreckin.herobrined.listeners.CommandListener;
 import com.kreckin.herobrined.listeners.EventListener;
+import com.kreckin.herobrined.util.Util;
 import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,8 +42,8 @@ public class Herobrined extends JavaPlugin {
             this.getLogger().severe("Failed to properly config the plugin!");
             this.getServer().getPluginManager().disablePlugin(this);
         }
-        Logger.log("Survival Only: " + Herobrined.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
-        Logger.log("Action Chance: " + Herobrined.config.getInt("Herobrined.actionChance"), Level.INFO);
+        Herobrined.log("Survival Only: " + Herobrined.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
+        Herobrined.log("Action Chance: " + Herobrined.config.getInt("Herobrined.actionChance"), Level.INFO);
         this.printArray(Herobrined.config.getStringList("Herobrined.signMessages"), "Sign Messages");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
@@ -52,13 +55,17 @@ public class Herobrined extends JavaPlugin {
         Herobrined.config = null;
     }
     
+    public static void log(String message, Level level) {
+        Bukkit.getLogger().log(level, ChatColor.stripColor(Util.formatString(message)));
+    }
+    
     private void printArray(List<String> list, String tag) {
         if (list.isEmpty()) {
-            Logger.log(tag + ": None", Level.INFO);
+            Herobrined.log(tag + ": None", Level.INFO);
         } else {
-            Logger.log(tag + ":", Level.INFO);
+            Herobrined.log(tag + ":", Level.INFO);
             for (int index = 0; index < list.size(); index++) {
-                Logger.log("\t" + (index + 1) + ". " + list.get(index), Level.INFO);
+                Herobrined.log("\t" + (index + 1) + ". " + list.get(index), Level.INFO);
             }
         }
     }
