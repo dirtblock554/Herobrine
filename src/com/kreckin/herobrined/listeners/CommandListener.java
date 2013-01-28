@@ -26,6 +26,7 @@ public class CommandListener implements CommandExecutor {
             }
             knownActions = knownActions.substring(0, knownActions.length() - 2);
             cs.sendMessage(knownActions);
+            return true;
         }
         if (strings.length == 2) {
             IAction foundAction = null;
@@ -43,14 +44,14 @@ public class CommandListener implements CommandExecutor {
                     IActionResult result = foundAction.checkAction(player, null);
                     cs.sendMessage("[Herobrined] " + result.getMessage());
                     if (result.getData() != null) {
-                        cs.sendMessage(result.getData());
+                        cs.sendMessage("[Herobrined] " + result.getData());
                     }
                 }
             } else {
                 cs.sendMessage("[Herobrined] Unknown action! Type \"/hb help\" for all actions!");
             }
         } else {
-            cs.sendMessage("[Herobrined] Run an action with \"/hb action\" username, or type \"/hb help\" for all actions!");
+            cs.sendMessage("[Herobrined] Run an action with \"/hb action username\", or type \"/hb help\" for all actions!");
         }
         return true;
     }

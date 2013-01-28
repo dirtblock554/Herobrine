@@ -1,5 +1,8 @@
 Herobrined:
   
+  # Should we ignore players not in survival mode?
+  survivalOnly: true
+  
   # What actions aren't allowed? (Type /hb help ingame to view all actions)
   disallowedActions:
     - ExampleAction

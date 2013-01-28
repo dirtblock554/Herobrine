@@ -14,7 +14,7 @@ public class ActionResult implements IActionResult {
     
     public ActionResult(String message, String data) {
         this.message = message;
-        this.data = null;
+        this.data = data;
     }
 
     @Override

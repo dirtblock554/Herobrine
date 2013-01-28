@@ -6,6 +6,7 @@ import com.kreckin.herobrined.impl.ActionManager;
 import com.kreckin.herobrined.listeners.CommandListener;
 import com.kreckin.herobrined.listeners.EventListener;
 import java.io.File;
+import java.util.List;
 import java.util.logging.Level;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,7 +20,6 @@ public class Herobrined extends JavaPlugin {
     @Override
     public void onEnable() {
         Herobrined.instance = this;
-        Logger.log("Configuring the plugin, please wait!", Level.INFO);
         this.actionManager = new ActionManager();
         this.actionManager.registerAction(new PlaceTorch());
         this.actionManager.registerAction(new PlaceSign());
@@ -35,11 +35,28 @@ public class Herobrined extends JavaPlugin {
             this.config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder() + "/config.yml"));
         } catch (Exception ex) {
             this.getLogger().severe("Failed to properly config the plugin!");
-            ex.printStackTrace();
             this.getServer().getPluginManager().disablePlugin(this);
             return;
         }
-        Logger.log("Done configuring the plugin!", Level.INFO);
+        List<String> disallowedWorlds = this.config.getStringList("Herobrined.disallowedWorlds");
+        if (disallowedWorlds.isEmpty()) {
+            Logger.log("Disallowed Worlds: None", Level.INFO);
+        } else {
+            Logger.log("Disallowed Worlds:", Level.INFO);
+            for (String world : disallowedWorlds) {
+                Logger.log("\t" + world, Level.INFO);
+            }
+        }
+        List<String> disallowedActions = this.config.getStringList("Herobrined.disallowedActions");
+        if (disallowedActions.isEmpty()) {
+            Logger.log("Disallowed Actions: None", Level.INFO);
+        } else {
+            Logger.log("Disallowed Actions:", Level.INFO);
+            for (String action : disallowedActions) {
+                Logger.log("\t" + action, Level.INFO);
+            }
+        }
+        Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
     }
     
     public YamlConfiguration getYamlConfiguration() {
