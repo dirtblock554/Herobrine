@@ -22,7 +22,9 @@ public class RearrangeInventory extends Action {
         Collections.shuffle(items);
         player.getInventory().clear();
         for (ItemStack item : items) {
-            player.getInventory().addItem(item);
+            if (item != null) {
+                player.getInventory().addItem(item);
+            }
         }
         return (new ActionResult("Done."));
     }
