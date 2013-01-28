@@ -39,22 +39,18 @@ public class Herobrined extends JavaPlugin {
             return;
         }
         Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
-        List<String> disallowedWorlds = this.config.getStringList("Herobrined.disallowedWorlds");
-        if (disallowedWorlds.isEmpty()) {
-            Logger.log("Disallowed Worlds: None", Level.INFO);
+        this.printArray(this.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
+        this.printArray(this.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
+        this.printArray(this.config.getStringList("Herobrined.signMessages"), "Sign Messages");
+    }
+    
+    private void printArray(List<String> list, String tag) {
+        if (list.isEmpty()) {
+            Logger.log(tag + ": None", Level.INFO);
         } else {
-            Logger.log("Disallowed Worlds:", Level.INFO);
-            for (String world : disallowedWorlds) {
-                Logger.log("\t" + world, Level.INFO);
-            }
-        }
-        List<String> disallowedActions = this.config.getStringList("Herobrined.disallowedActions");
-        if (disallowedActions.isEmpty()) {
-            Logger.log("Disallowed Actions: None", Level.INFO);
-        } else {
-            Logger.log("Disallowed Actions:", Level.INFO);
-            for (String action : disallowedActions) {
-                Logger.log("\t" + action, Level.INFO);
+            Logger.log(tag + ":", Level.INFO);
+            for (int index = 0; index < list.size(); index++) {
+                Logger.log("\t" + (index + 1) + ". " + list.get(index), Level.INFO);
             }
         }
     }
