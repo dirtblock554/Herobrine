@@ -38,6 +38,7 @@ public class Herobrined extends JavaPlugin {
             this.getServer().getPluginManager().disablePlugin(this);
             return;
         }
+        Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
         List<String> disallowedWorlds = this.config.getStringList("Herobrined.disallowedWorlds");
         if (disallowedWorlds.isEmpty()) {
             Logger.log("Disallowed Worlds: None", Level.INFO);
@@ -56,7 +57,6 @@ public class Herobrined extends JavaPlugin {
                 Logger.log("\t" + action, Level.INFO);
             }
         }
-        Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
     }
     
     public YamlConfiguration getYamlConfiguration() {
