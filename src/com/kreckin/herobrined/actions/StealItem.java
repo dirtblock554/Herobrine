@@ -16,7 +16,16 @@ public class StealItem extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        ItemStack item = player.getInventory().getItem(new Random().nextInt(35));
+        int size = 0;
+        for (ItemStack item : player.getInventory().getContents()) {
+            if (item != null) {
+                size++;
+            }
+        }
+        if (size <= 0) {
+            size = 1;
+        }
+        ItemStack item = player.getInventory().getItem(new Random().nextInt(size));
         if (item != null) {
             return (new ActionResult("Done.", "Stole: " + item.getType().toString() + " & Amount: " + item.getAmount()));
         }
