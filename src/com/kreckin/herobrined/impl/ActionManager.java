@@ -8,6 +8,7 @@ import com.kreckin.herobrined.actions.CreateTNTTrap;
 import com.kreckin.herobrined.actions.DestroyTorches;
 import com.kreckin.herobrined.actions.PlaceSign;
 import com.kreckin.herobrined.actions.PlaceTorch;
+import com.kreckin.herobrined.actions.PossessPlayer;
 import com.kreckin.herobrined.actions.RearrangeInventory;
 import com.kreckin.herobrined.actions.StealItem;
 import com.kreckin.herobrined.api.IAction;
@@ -30,6 +31,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new CreateTNTTrap());
         this.registerAction(new StealItem());
         this.registerAction(new RearrangeInventory());
+        this.registerAction(new PossessPlayer());
     }
 
     public final void registerAction(IAction action) {
