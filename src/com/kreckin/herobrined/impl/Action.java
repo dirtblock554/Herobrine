@@ -16,7 +16,7 @@ public abstract class Action implements IAction {
         if (Herobrined.getHerobrined().getYamlConfiguration().getStringList("Herobrined.disallowedWorlds").contains(player.getWorld().getName())) {
             return (new ActionResult("Sorry, that world has been disallowed in the configuration file!"));
         }
-        if (player.getGameMode().equals(GameMode.SURVIVAL) && Herobrined.getHerobrined().getYamlConfiguration().getBoolean("Herobrined.survivalOnly")) {
+        if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrined.getHerobrined().getYamlConfiguration().getBoolean("Herobrined.survivalOnly")) {
             return (new ActionResult("Sorry, the player must be in survival mode."));
         }
         return this.callAction(player, metadata);

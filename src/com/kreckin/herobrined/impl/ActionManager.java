@@ -18,7 +18,7 @@ public class ActionManager implements IActionManager {
         System.arraycopy(this.actions, 0, newActions, 0, this.actions.length);
         newActions[this.actions.length] = action;
         this.actions = newActions;
-        Logger.log("Registered Action (#" + (this.actions.length - 1) + "): " + action.getClass().getSimpleName(), Level.INFO);
+        Logger.log("Registered Action: " + action.getClass().getSimpleName(), Level.INFO);
     }
 
     public IAction[] getRegisteredActions() {

@@ -22,6 +22,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (!cs.hasPermission("herobrine.commands") && !cs.isOp()) {
             cs.sendMessage(Util.formatString("Sorry, you do not have permission to do this!"));
+            return true;
         }
         if (strings.length == 1 && strings[0].equalsIgnoreCase("help")) {
             String knownActions = "Known actions: ";

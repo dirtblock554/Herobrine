@@ -36,7 +36,6 @@ public class Herobrined extends JavaPlugin {
         } catch (Exception ex) {
             this.getLogger().severe("Failed to properly config the plugin!");
             this.getServer().getPluginManager().disablePlugin(this);
-            return;
         }
         Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
         this.printArray(this.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");

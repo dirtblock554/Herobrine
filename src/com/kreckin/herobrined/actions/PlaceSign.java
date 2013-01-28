@@ -25,7 +25,7 @@ public class PlaceSign extends Action {
             sign.setLine(1, message);
             sign.update();
             Location loc = block.getLocation();
-            return (new ActionResult("Done.", "Location: " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ()));
+            return (new ActionResult("Done.", "Location: " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ() + " & Message: \"" + message + "\""));
         } else {
             return (new ActionResult("Failed, could not find a proper location!"));
         }
