@@ -1,5 +1,7 @@
 package com.kreckin.herobrined;
 
+import com.kreckin.herobrined.actions.CreateRingOfFire;
+import com.kreckin.herobrined.actions.DestroyTorches;
 import com.kreckin.herobrined.actions.PlaceSign;
 import com.kreckin.herobrined.actions.PlaceTorch;
 import com.kreckin.herobrined.impl.ActionManager;
@@ -23,6 +25,8 @@ public class Herobrined extends JavaPlugin {
         this.actionManager = new ActionManager();
         this.actionManager.registerAction(new PlaceTorch());
         this.actionManager.registerAction(new PlaceSign());
+        this.actionManager.registerAction(new DestroyTorches());
+        this.actionManager.registerAction(new CreateRingOfFire());
         this.getCommand("hb").setExecutor(new CommandListener());
         this.getServer().getPluginManager().registerEvents(new EventListener(), this);
         try {
@@ -38,9 +42,9 @@ public class Herobrined extends JavaPlugin {
             this.getServer().getPluginManager().disablePlugin(this);
         }
         Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
+        this.printArray(this.config.getStringList("Herobrined.signMessages"), "Sign Messages");
         this.printArray(this.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
         this.printArray(this.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
-        this.printArray(this.config.getStringList("Herobrined.signMessages"), "Sign Messages");
     }
     
     private void printArray(List<String> list, String tag) {

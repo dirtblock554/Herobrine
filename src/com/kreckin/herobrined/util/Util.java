@@ -37,7 +37,7 @@ public class Util {
         allowed.add(Material.DIRT);
         allowed.add(Material.COBBLESTONE);
         allowed.add(Material.WOOD);
-        return (block.getType().equals(Material.AIR) && allowed.contains(block.getWorld().getBlockAt(block.getLocation().subtract(0, 1, 0)).getType()));
+        return ((block.getType().equals(Material.AIR) || block.getType().equals(Material.LONG_GRASS)) && allowed.contains(block.getWorld().getBlockAt(block.getLocation().subtract(0, 1, 0)).getType()));
     }
     
     public static String formatString(String message) {
