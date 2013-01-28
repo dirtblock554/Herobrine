@@ -11,4 +11,10 @@ Herobrined:
   disallowedWorlds:
     - ExampleWorld
     
-  # 
+  # What messages can he put on the signs he places?
+  signMessages:
+    - I'm watching.
+    - Stop.
+    - I'm here.
+    - Never forget.
+    - Brightness.
