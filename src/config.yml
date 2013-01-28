@@ -10,3 +10,5 @@ Herobrined:
   # What worlds are off limits to the plugin?
   disallowedWorlds:
     - ExampleWorld
+    
+  # 

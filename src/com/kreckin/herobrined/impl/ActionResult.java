@@ -3,9 +3,7 @@ package com.kreckin.herobrined.impl;
 import com.kreckin.herobrined.api.IActionResult;
 
 public class ActionResult implements IActionResult {
-    
-    public static ActionResult BASIC = new ActionResult("Done.");
-    
+
     private final String data, message;
     
     public ActionResult(String message) {

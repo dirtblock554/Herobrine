@@ -3,8 +3,7 @@ package com.kreckin.herobrined.actions;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
-import com.kreckin.herobrined.util.BlockUtil;
-import com.kreckin.herobrined.util.PlayerUtil;
+import com.kreckin.herobrined.util.Util;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -14,8 +13,8 @@ public class PlaceTorch extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        Block block = player.getWorld().getBlockAt(PlayerUtil.getNearbyLocation(player, 10));
-        if (BlockUtil.isValid(block)) {
+        Block block = player.getWorld().getBlockAt(Util.getNearbyLocation(player, 10));
+        if (Util.isValid(block)) {
             block.setType(Material.REDSTONE_TORCH_ON);
             Location loc = block.getLocation();
             return (new ActionResult("Done.", "Location: " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ()));
