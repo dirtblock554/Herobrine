@@ -40,6 +40,7 @@ public class Herobrined extends JavaPlugin {
             this.getServer().getPluginManager().disablePlugin(this);
         }
         Logger.log("Survival Only: " + Herobrined.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
+        Logger.log("Action Chance: " + Herobrined.config.getInt("Herobrined.actionChance"), Level.INFO);
         this.printArray(Herobrined.config.getStringList("Herobrined.signMessages"), "Sign Messages");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
