@@ -3,6 +3,7 @@ package com.kreckin.herobrined.listeners;
 import com.kreckin.herobrined.Herobrined;
 import com.kreckin.herobrined.api.IAction;
 import com.kreckin.herobrined.api.IActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import java.util.logging.Level;
 import org.bukkit.Bukkit;
@@ -41,6 +42,10 @@ public class CommandListener implements CommandExecutor {
                 }
             }
             if (foundAction != null) {
+                if (!foundAction.getType().equals(ActionType.STANDARD)) {
+                    cs.sendMessage(Util.formatString("Sorry, this is not an action that can be run by commands!"));
+                    return true;
+                }
                 Player player = Bukkit.getPlayer(strings[1]);
                 if (player == null) {
                     cs.sendMessage(Util.formatString("Unknown player!"));

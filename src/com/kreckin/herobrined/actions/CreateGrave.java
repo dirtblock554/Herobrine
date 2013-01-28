@@ -3,6 +3,7 @@ package com.kreckin.herobrined.actions;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import java.util.Random;
 import org.bukkit.Location;
@@ -12,6 +13,10 @@ import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 
 public class CreateGrave extends Action {
+    
+    public CreateGrave() {
+        super(ActionType.STANDARD);
+    }
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {

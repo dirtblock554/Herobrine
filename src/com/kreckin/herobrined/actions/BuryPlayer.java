@@ -4,6 +4,7 @@ import com.kreckin.herobrined.Herobrined;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,6 +13,10 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 public class BuryPlayer extends Action {
+    
+    public BuryPlayer() {
+        super(ActionType.STANDARD);
+    }
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {

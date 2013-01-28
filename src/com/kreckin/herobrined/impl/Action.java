@@ -8,6 +8,12 @@ import org.bukkit.entity.Player;
 
 public abstract class Action implements IAction {
 
+    private final ActionType type;
+    
+    public Action(ActionType type) {
+        this.type = type;
+    }
+    
     @Override
     public IActionResult checkAction(Player player, Object[] metadata) {
         if (Herobrined.getConfigFile().getStringList("Herobrined.disallowedActions").contains(this.getClass().getSimpleName())) {
@@ -20,5 +26,10 @@ public abstract class Action implements IAction {
             return (new ActionResult("Sorry, the player must be in survival mode."));
         }
         return this.callAction(player, metadata);
+    }
+    
+    @Override
+    public ActionType getType() {
+        return this.type;
     }
 }

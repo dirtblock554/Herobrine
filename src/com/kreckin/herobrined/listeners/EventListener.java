@@ -3,6 +3,7 @@ package com.kreckin.herobrined.listeners;
 import com.kreckin.herobrined.Herobrined;
 import com.kreckin.herobrined.api.IAction;
 import com.kreckin.herobrined.api.IActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import java.util.Random;
 import java.util.logging.Level;
@@ -27,6 +28,9 @@ public class EventListener implements Listener {
         this.sinceCheck = 0;
         if (Util.shouldAct(event.getPlayer())) {
             IAction action = Herobrined.getActionManager().getRegisteredActions().get(new Random().nextInt(Herobrined.getActionManager().getRegisteredActions().size() - 1));
+            if (!action.getType().equals(ActionType.STANDARD)) {
+                return;
+            }
             Herobrined.log("Running Action: " + action.getClass().getSimpleName() + " & Player: " + event.getPlayer().getName(), Level.INFO);
             IActionResult result = action.checkAction(event.getPlayer(), null);
             Herobrined.log(result.getMessage(), Level.INFO);

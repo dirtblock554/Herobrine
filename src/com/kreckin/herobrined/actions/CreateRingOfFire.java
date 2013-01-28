@@ -3,6 +3,7 @@ package com.kreckin.herobrined.actions;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import java.util.ArrayList;
 import org.bukkit.Location;
@@ -11,6 +12,10 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 public class CreateRingOfFire extends Action {
+    
+    public CreateRingOfFire() {
+        super(ActionType.STANDARD);
+    }
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {

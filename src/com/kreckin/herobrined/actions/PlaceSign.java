@@ -3,6 +3,7 @@ package com.kreckin.herobrined.actions;
 import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
+import com.kreckin.herobrined.impl.ActionType;
 import com.kreckin.herobrined.util.Util;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -12,6 +13,10 @@ import org.bukkit.entity.Player;
 
 public class PlaceSign extends Action {
 
+    public PlaceSign() {
+        super(ActionType.STANDARD);
+    }
+    
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
         Block block = Util.getNearbyLocation(player, 5).getBlock();
