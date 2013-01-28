@@ -4,6 +4,7 @@ import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
 import com.kreckin.herobrined.util.Util;
+import java.util.Random;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
