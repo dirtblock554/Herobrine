@@ -17,7 +17,8 @@ public class PossessPlayer extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        int time = (new Random().nextInt(5) + 5) * 20;
+        int time = (new Random().nextInt(10) + 5) * 20;
+        player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, time, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, time, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, time, 1));
         player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, time, 1));
