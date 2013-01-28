@@ -15,14 +15,14 @@ public class CreateRingOfFire extends Action {
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
         ArrayList<Block> blocks = new ArrayList<Block>();
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(2, 0, 0)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(0, 0, 2)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(0, 0, -2)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(-2, 0, 0)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(1, 0, 1)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(1, 0, -1)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(-1, 0, 1)));
-        blocks.add(player.getWorld().getBlockAt(player.getLocation().add(-1, 0, -1)));
+        blocks.add(player.getLocation().add(2, 0, 0).getBlock());
+        blocks.add(player.getLocation().add(0, 0, 2).getBlock());
+        blocks.add(player.getLocation().add(0, 0, -2).getBlock());
+        blocks.add(player.getLocation().add(-2, 0, 0).getBlock());
+        blocks.add(player.getLocation().add(1, 0, 1).getBlock());
+        blocks.add(player.getLocation().add(1, 0, -1).getBlock());
+        blocks.add(player.getLocation().add(-1, 0, 1).getBlock());
+        blocks.add(player.getLocation().add(-1, 0, -1).getBlock());
         boolean bad = false;
         for (Block block : blocks) {
             if (!Util.isValid(block)) {

@@ -15,10 +15,10 @@ public class BuryPlayer extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        final Block top = player.getWorld().getBlockAt(player.getLocation().subtract(0, 1, 0));
+        final Block top = player.getLocation().subtract(0, 1, 0).getBlock();
         final Material type = top.getType();
-        Block middle = player.getWorld().getBlockAt(player.getLocation().subtract(0, 2, 0));
-        Block bottom = player.getWorld().getBlockAt(player.getLocation().subtract(0, 3, 0));
+        Block middle = player.getLocation().subtract(0, 2, 0).getBlock();
+        Block bottom = player.getLocation().subtract(0, 3, 0).getBlock();
         if (Util.isSolid(top) && Util.isSolid(middle) && Util.isSolid(bottom)) {
             top.setType(Material.AIR);
             middle.setType(Material.AIR);

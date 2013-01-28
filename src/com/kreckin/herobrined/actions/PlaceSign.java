@@ -14,7 +14,7 @@ public class PlaceSign extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        Block block = player.getWorld().getBlockAt(Util.getNearbyLocation(player, 5));
+        Block block = Util.getNearbyLocation(player, 5).getBlock();
         if (Util.isValid(block)) {
             String message = Util.getMessage("Herobrined.signMessages");
             if (message == null) {

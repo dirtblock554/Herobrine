@@ -15,10 +15,10 @@ public class CreateGrave extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        Block sign = player.getWorld().getBlockAt(Util.getNearbyLocation(player, 5));
-        Block stone1 = player.getWorld().getBlockAt(sign.getLocation().add(0, -1, 1));
-        Block stone2 = player.getWorld().getBlockAt(sign.getLocation().add(0, -1, 2));
-        Block stone3 = player.getWorld().getBlockAt(sign.getLocation().add(0, -1, 0));
+        Block sign = Util.getNearbyLocation(player, 5).getBlock();
+        Block stone1 = sign.getLocation().add(0, -1, 1).getBlock();
+        Block stone2 = sign.getLocation().add(0, -1, 2).getBlock();
+        Block stone3 = sign.getLocation().add(0, -1, 0).getBlock();
         if (Util.isValid(sign) && Util.isSolid(stone1) && Util.isSolid(stone2) && Util.isSolid(stone3)) {
             sign.setType(Material.SIGN_POST);
             stone1.setType(new Random().nextBoolean() ? Material.COBBLESTONE : Material.MOSSY_COBBLESTONE);

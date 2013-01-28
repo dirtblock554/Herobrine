@@ -4,6 +4,7 @@ import com.kreckin.herobrined.Herobrined;
 import com.kreckin.herobrined.actions.BuryPlayer;
 import com.kreckin.herobrined.actions.CreateGrave;
 import com.kreckin.herobrined.actions.CreateRingOfFire;
+import com.kreckin.herobrined.actions.CreateTNTTrap;
 import com.kreckin.herobrined.actions.DestroyTorches;
 import com.kreckin.herobrined.actions.PlaceSign;
 import com.kreckin.herobrined.actions.PlaceTorch;
@@ -24,6 +25,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new CreateRingOfFire());
         this.registerAction(new BuryPlayer());
         this.registerAction(new CreateGrave());
+        this.registerAction(new CreateTNTTrap());
     }
 
     public final void registerAction(IAction action) {
