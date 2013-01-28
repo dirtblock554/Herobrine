@@ -10,13 +10,13 @@ public abstract class Action implements IAction {
 
     @Override
     public IActionResult checkAction(Player player, Object[] metadata) {
-        if (Herobrined.getHerobrined().getYamlConfiguration().getStringList("Herobrined.disallowedActions").contains(this.getClass().getSimpleName())) {
+        if (Herobrined.getConfigFile().getStringList("Herobrined.disallowedActions").contains(this.getClass().getSimpleName())) {
             return (new ActionResult("Sorry, that action has been disallowed in the configuration file!"));
         }
-        if (Herobrined.getHerobrined().getYamlConfiguration().getStringList("Herobrined.disallowedWorlds").contains(player.getWorld().getName())) {
+        if (Herobrined.getConfigFile().getStringList("Herobrined.disallowedWorlds").contains(player.getWorld().getName())) {
             return (new ActionResult("Sorry, that world has been disallowed in the configuration file!"));
         }
-        if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrined.getHerobrined().getYamlConfiguration().getBoolean("Herobrined.survivalOnly")) {
+        if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrined.getConfigFile().getBoolean("Herobrined.survivalOnly")) {
             return (new ActionResult("Sorry, the player must be in survival mode."));
         }
         return this.callAction(player, metadata);

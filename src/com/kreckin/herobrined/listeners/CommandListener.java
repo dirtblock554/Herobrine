@@ -26,7 +26,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 1 && strings[0].equalsIgnoreCase("help")) {
             String knownActions = "Known actions: ";
-            for (IAction action : Herobrined.getHerobrined().getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
                 knownActions += action.getClass().getSimpleName() + ", ";
             }
             knownActions = knownActions.substring(0, knownActions.length() - 2);
@@ -35,7 +35,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 2) {
             IAction foundAction = null;
-            for (IAction action : Herobrined.getHerobrined().getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
                 if (action.getClass().getSimpleName().equalsIgnoreCase(strings[0])) {
                     foundAction = action;
                     break;

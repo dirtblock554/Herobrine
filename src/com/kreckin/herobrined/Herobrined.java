@@ -15,18 +15,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Herobrined extends JavaPlugin {
 
-    private static Herobrined instance;
-    private ActionManager actionManager;
-    private YamlConfiguration config;
+    private static ActionManager actionManager;
+    private static YamlConfiguration config;
 
     @Override
     public void onEnable() {
-        Herobrined.instance = this;
-        this.actionManager = new ActionManager();
-        this.actionManager.registerAction(new PlaceTorch());
-        this.actionManager.registerAction(new PlaceSign());
-        this.actionManager.registerAction(new DestroyTorches());
-        this.actionManager.registerAction(new CreateRingOfFire());
+        Herobrined.actionManager = new ActionManager();
+        Herobrined.actionManager.registerAction(new PlaceTorch());
+        Herobrined.actionManager.registerAction(new PlaceSign());
+        Herobrined.actionManager.registerAction(new DestroyTorches());
+        Herobrined.actionManager.registerAction(new CreateRingOfFire());
         this.getCommand("hb").setExecutor(new CommandListener());
         this.getServer().getPluginManager().registerEvents(new EventListener(), this);
         try {
@@ -36,15 +34,15 @@ public class Herobrined extends JavaPlugin {
             if (!new File(this.getDataFolder() + "/config.yml").exists()) {
                 this.saveResource("config.yml", false);
             }
-            this.config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder() + "/config.yml"));
+            Herobrined.config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder() + "/config.yml"));
         } catch (Exception ex) {
             this.getLogger().severe("Failed to properly config the plugin!");
             this.getServer().getPluginManager().disablePlugin(this);
         }
-        Logger.log("Survival Only: " + this.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
-        this.printArray(this.config.getStringList("Herobrined.signMessages"), "Sign Messages");
-        this.printArray(this.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
-        this.printArray(this.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
+        Logger.log("Survival Only: " + Herobrined.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
+        this.printArray(Herobrined.config.getStringList("Herobrined.signMessages"), "Sign Messages");
+        this.printArray(Herobrined.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
+        this.printArray(Herobrined.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
     }
     
     private void printArray(List<String> list, String tag) {
@@ -58,15 +56,11 @@ public class Herobrined extends JavaPlugin {
         }
     }
     
-    public YamlConfiguration getYamlConfiguration() {
-        return this.config;
+    public static YamlConfiguration getConfigFile() {
+        return Herobrined.config;
     }
     
-    public ActionManager getActionManager() {
-        return this.actionManager;
-    }
-    
-    public static Herobrined getHerobrined() {
-        return Herobrined.instance;
+    public static ActionManager getActionManager() {
+        return Herobrined.actionManager;
     }
 }
