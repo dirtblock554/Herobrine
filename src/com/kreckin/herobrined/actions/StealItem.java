@@ -4,6 +4,7 @@ import com.kreckin.herobrined.api.IActionResult;
 import com.kreckin.herobrined.impl.Action;
 import com.kreckin.herobrined.impl.ActionResult;
 import com.kreckin.herobrined.impl.ActionType;
+import java.util.ArrayList;
 import java.util.Random;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -16,17 +17,22 @@ public class StealItem extends Action {
 
     @Override
     public IActionResult callAction(Player player, Object[] metadata) {
-        int size = 0;
-        for (ItemStack item : player.getInventory().getContents()) {
-            if (item != null) {
-                size++;
+        ArrayList<Integer> slots = new ArrayList<Integer>();
+        for (int index = 0; index < 35; index++) {
+            if (player.getInventory().getItem(index) != null) {
+                slots.add(index);
             }
         }
-        if (size <= 0) {
-            size = 1;
+        if (slots.isEmpty()) {
+            return (new ActionResult("Failed, could not find a proper item!"));
         }
-        ItemStack item = player.getInventory().getItem(new Random().nextInt(size));
+        ItemStack item = player.getInventory().getItem(new Random().nextInt(slots.size() - 1));
+        if (slots.size() == 1) {
+            item = player.getInventory().getItem(slots.get(0));
+        }
         if (item != null) {
+            player.getInventory().remove(item);
+            player.updateInventory();
             return (new ActionResult("Done.", "Stole: " + item.getType().toString() + " & Amount: " + item.getAmount()));
         }
         return (new ActionResult("Failed, could not find a proper item!"));
