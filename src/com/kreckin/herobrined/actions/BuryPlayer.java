@@ -19,7 +19,7 @@ public class BuryPlayer extends Action {
         final Material type = top.getType();
         Block middle = player.getWorld().getBlockAt(player.getLocation().subtract(0, 2, 0));
         Block bottom = player.getWorld().getBlockAt(player.getLocation().subtract(0, 3, 0));
-        if (Util.isValid(top) && Util.isSolid(middle) && Util.isSolid(bottom)) {
+        if (Util.isSolid(top) && Util.isSolid(middle) && Util.isSolid(bottom)) {
             top.setType(Material.AIR);
             middle.setType(Material.AIR);
             bottom.setType(Material.AIR);
