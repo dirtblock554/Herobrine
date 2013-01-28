@@ -1,9 +1,5 @@
 package com.kreckin.herobrined;
 
-import com.kreckin.herobrined.actions.CreateRingOfFire;
-import com.kreckin.herobrined.actions.DestroyTorches;
-import com.kreckin.herobrined.actions.PlaceSign;
-import com.kreckin.herobrined.actions.PlaceTorch;
 import com.kreckin.herobrined.impl.ActionManager;
 import com.kreckin.herobrined.listeners.CommandListener;
 import com.kreckin.herobrined.listeners.EventListener;
@@ -18,16 +14,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Herobrined extends JavaPlugin {
 
+    private static Herobrined instance;
     private static ActionManager actionManager;
     private static YamlConfiguration config;
 
     @Override
     public void onEnable() {
+        Herobrined.instance = this;
         Herobrined.actionManager = new ActionManager();
-        Herobrined.actionManager.registerAction(new PlaceTorch());
-        Herobrined.actionManager.registerAction(new PlaceSign());
-        Herobrined.actionManager.registerAction(new DestroyTorches());
-        Herobrined.actionManager.registerAction(new CreateRingOfFire());
         this.getCommand("hb").setExecutor(new CommandListener());
         this.getServer().getPluginManager().registerEvents(new EventListener(), this);
         try {
@@ -53,6 +47,7 @@ public class Herobrined extends JavaPlugin {
     public void onDisable() {
         Herobrined.actionManager = null;
         Herobrined.config = null;
+        Herobrined.instance = null;
     }
     
     public static void log(String message, Level level) {
@@ -76,5 +71,9 @@ public class Herobrined extends JavaPlugin {
     
     public static ActionManager getActionManager() {
         return Herobrined.actionManager;
+    }
+    
+    public static Herobrined getInstance() {
+        return Herobrined.instance;
     }
 }

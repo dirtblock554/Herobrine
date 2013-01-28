@@ -42,13 +42,17 @@ public class Util {
     }
     
     public static boolean isValid(Block block) {
+        return ((block.getType().equals(Material.AIR) || block.getType().equals(Material.LONG_GRASS)) && Util.isSolid(block.getWorld().getBlockAt(block.getLocation().subtract(0, 1, 0))));
+    }
+    
+    public static boolean isSolid(Block block) {
         List<Material> allowed = new ArrayList<Material>();
         allowed.add(Material.STONE);
         allowed.add(Material.GRASS);
         allowed.add(Material.DIRT);
         allowed.add(Material.COBBLESTONE);
         allowed.add(Material.WOOD);
-        return ((block.getType().equals(Material.AIR) || block.getType().equals(Material.LONG_GRASS)) && allowed.contains(block.getWorld().getBlockAt(block.getLocation().subtract(0, 1, 0)).getType()));
+        return allowed.contains(block.getType());
     }
     
     public static String formatString(String message) {

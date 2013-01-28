@@ -18,8 +18,7 @@ public class PlaceTorch extends Action {
             block.setType(Material.REDSTONE_TORCH_ON);
             Location loc = block.getLocation();
             return (new ActionResult("Done.", "Location: " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ()));
-        } else {
-            return (new ActionResult("Failed, could not find a proper location!"));
         }
+        return (new ActionResult("Failed, could not find a proper location!"));
     }
 }
