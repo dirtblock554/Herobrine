@@ -45,6 +45,12 @@ public class Herobrined extends JavaPlugin {
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
     }
     
+    @Override
+    public void onDisable() {
+        Herobrined.actionManager = null;
+        Herobrined.config = null;
+    }
+    
     private void printArray(List<String> list, String tag) {
         if (list.isEmpty()) {
             Logger.log(tag + ": None", Level.INFO);
