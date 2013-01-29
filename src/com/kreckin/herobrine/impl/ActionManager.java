@@ -1,6 +1,7 @@
 package com.kreckin.herobrine.impl;
 
 import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.actions.AltarSummon;
 import com.kreckin.herobrine.actions.BatAttack;
 import com.kreckin.herobrine.actions.BuryPlayer;
 import com.kreckin.herobrine.actions.CreateGrave;
@@ -40,6 +41,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new BatAttack());
         this.registerAction(new CreatePyramid());
         this.registerAction(new PlaySound());
+        this.registerAction(new AltarSummon());
     }
 
     public final void registerAction(IAction action) {

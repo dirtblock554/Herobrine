@@ -26,6 +26,7 @@ public class AltarSummon extends Action {
                 ((Player) entity).sendMessage(Util.formatString(Util.getMessage("Herobrine.altarMessages")));
             }
         }
+        player.sendMessage(Util.formatString(Util.getMessage("Herobrine.altarMessages")));
         return (new ActionResult("Done."));
     }
 }
