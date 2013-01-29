@@ -3,12 +3,10 @@ package com.kreckin.herobrine;
 import com.kreckin.herobrine.impl.ActionManager;
 import com.kreckin.herobrine.listeners.CommandListener;
 import com.kreckin.herobrine.listeners.EventListener;
-import com.kreckin.herobrine.util.Util;
 import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
