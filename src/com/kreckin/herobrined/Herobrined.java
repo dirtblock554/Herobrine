@@ -33,14 +33,20 @@ public class Herobrined extends JavaPlugin {
             }
             Herobrined.config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder() + "/config.yml"));
         } catch (Exception ex) {
-            this.getLogger().severe("Failed to properly config the plugin!");
+            Herobrined.log("Failed to properly config the plugin!", Level.SEVERE);
             this.getServer().getPluginManager().disablePlugin(this);
+            return;
         }
         Herobrined.log("Survival Only: " + Herobrined.config.getBoolean("Herobrined.survivalOnly"), Level.INFO);
         Herobrined.log("Action Chance: " + Herobrined.config.getInt("Herobrined.actionChance"), Level.INFO);
         this.printArray(Herobrined.config.getStringList("Herobrined.signMessages"), "Sign Messages");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedWorlds"), "Disallowed Worlds");
         this.printArray(Herobrined.config.getStringList("Herobrined.disallowedActions"), "Disallowed Actions");
+        try {
+            new MetricsLite(this).start();
+        } catch (Exception ex) {
+            Herobrined.log("Failed to start MCStats reporting!", Level.WARNING);
+        }
     }
     
     @Override
