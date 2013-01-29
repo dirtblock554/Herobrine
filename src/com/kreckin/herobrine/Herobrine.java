@@ -37,6 +37,7 @@ public class Herobrine extends JavaPlugin {
             this.getServer().getPluginManager().disablePlugin(this);
             return;
         }
+        Herobrine.log("Heavier Equation: " + Herobrine.config.getBoolean("Herobrine.heavierEquation"), Level.INFO);
         Herobrine.log("Survival Only: " + Herobrine.config.getBoolean("Herobrine.survivalOnly"), Level.INFO);
         Herobrine.log("Action Chance: " + Herobrine.config.getInt("Herobrine.actionChance"), Level.INFO);
         this.printArray(Herobrine.config.getStringList("Herobrine.signMessages"), "Sign Messages");
