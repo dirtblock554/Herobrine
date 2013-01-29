@@ -9,6 +9,7 @@ import com.kreckin.herobrine.actions.CreatePyramid;
 import com.kreckin.herobrine.actions.CreateRingOfFire;
 import com.kreckin.herobrine.actions.CreateTNTTrap;
 import com.kreckin.herobrine.actions.DestroyTorches;
+import com.kreckin.herobrine.actions.GiftBook;
 import com.kreckin.herobrine.actions.PlaceSign;
 import com.kreckin.herobrine.actions.PlaceTorch;
 import com.kreckin.herobrine.actions.PlaySound;
@@ -42,6 +43,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new CreatePyramid());
         this.registerAction(new PlaySound());
         this.registerAction(new AltarSummon());
+        this.registerAction(new GiftBook());
     }
 
     public final void registerAction(IAction action) {

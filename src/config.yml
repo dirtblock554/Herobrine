@@ -28,6 +28,13 @@ Herobrine:
     - Where is your God now?
     - Water, water, water...
     - Look into my eyes!
+    
+  # What can he write in the books?
+  bookMessages:
+    - You.
+    - Expect me.
+    - You'll just be another victim...
+    - One more name on the list.
 
   # What actions aren't allowed? (Type /hb help ingame to view all actions)
   disallowedActions:

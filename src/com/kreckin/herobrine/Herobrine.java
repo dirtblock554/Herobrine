@@ -41,6 +41,7 @@ public class Herobrine extends JavaPlugin {
         Herobrine.log("Survival Only: " + Herobrine.config.getBoolean("Herobrine.survivalOnly"), Level.INFO);
         Herobrine.log("Action Chance: " + Herobrine.config.getInt("Herobrine.actionChance"), Level.INFO);
         Herobrine.log("Entity Name: " + Herobrine.config.getString("Herobrine.entityName"), Level.INFO);
+        this.printArray(Herobrine.config.getStringList("Herobrine.bookMessages"), "Book Messages");
         this.printArray(Herobrine.config.getStringList("Herobrine.signMessages"), "Sign Messages");
         this.printArray(Herobrine.config.getStringList("Herobrine.altarMessages"), "Altar Messages");
         this.printArray(Herobrine.config.getStringList("Herobrine.disallowedWorlds"), "Disallowed Worlds");
