@@ -8,15 +8,10 @@ Herobrine:
   
   # This is a more advanced equation to choose events, it may cause lag.
   heavierEquation: false
-  
-  # What actions aren't allowed? (Type /hb help ingame to view all actions)
-  disallowedActions:
-    - ExampleAction
-    
-  # What worlds are off limits to the plugin?
-  disallowedWorlds:
-    - ExampleWorld
-    
+
+  # What should his name be?
+  entityName: Herobrine
+ 
   # What messages can he put on the signs he places?
   signMessages:
     - I'm watching.
@@ -24,3 +19,20 @@ Herobrine:
     - I'm here.
     - Never forget.
     - Brightness.
+    
+  # What messages should he say when an altar is lit?
+  altarMessages:
+    - I am your God!
+    - I will always prevail!
+    - Never doubt my power!
+    - Where is your God now?
+    - Water, water, water...
+    - Look into my eyes!
+
+  # What actions aren't allowed? (Type /hb help ingame to view all actions)
+  disallowedActions:
+    - ExampleAction
+    
+  # What worlds are off limits to the plugin?
+  disallowedWorlds:
+    - ExampleWorld

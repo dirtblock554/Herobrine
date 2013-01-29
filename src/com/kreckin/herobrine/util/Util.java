@@ -58,6 +58,6 @@ public class Util {
     }
     
     public static String formatString(String message) {
-        return ("[" + ChatColor.RED + "Herobrine" + ChatColor.WHITE + "] " + message);
+        return ("[" + ChatColor.RED + Herobrine.getConfigFile().getString("Herobrine.entityName") + ChatColor.WHITE + "] " + message);
     }
 }

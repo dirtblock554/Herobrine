@@ -58,7 +58,7 @@ public class Herobrine extends JavaPlugin {
     }
     
     public static void log(String message, Level level) {
-        Bukkit.getLogger().log(level, ChatColor.stripColor(Util.formatString(message)));
+        Bukkit.getLogger().log(level, "[Herobrine] {0}", message);
     }
     
     private void printArray(List<String> list, String tag) {
