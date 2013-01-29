@@ -26,9 +26,9 @@ public class StealItem extends Action {
         if (slots.isEmpty()) {
             return (new ActionResult("Failed, could not find a proper item!"));
         }
-        ItemStack item = player.getInventory().getItem(new Random().nextInt(slots.size() - 1));
-        if (slots.size() == 1) {
-            item = player.getInventory().getItem(slots.get(0));
+        ItemStack item = player.getInventory().getItem(slots.get(0));
+        if (slots.size() > 1) {
+            item = player.getInventory().getItem(new Random().nextInt(slots.size() - 1));
         }
         if (item != null) {
             player.getInventory().remove(item);
