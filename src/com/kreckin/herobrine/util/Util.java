@@ -14,11 +14,13 @@ public class Util {
     
     public static boolean shouldAct(Player player) {
         int actionChance = Herobrine.getConfigFile().getInt("Herobrine.actionChance");
-        if (player.getWorld().getTime() >= 13000 && player.getWorld().getTime() <= 14200) {
-            actionChance /= 4;
-        }
-        if (player.getNearbyEntities(10, 10, 10).size() <= 3) {
-            actionChance /= 4;
+        if (Herobrine.getConfigFile().getBoolean("Herobrine.heavierEquation")) {
+            if (player.getWorld().getTime() >= 13000 && player.getWorld().getTime() <= 14200) {
+                actionChance /= 4;
+            }
+            if (player.getNearbyEntities(10, 10, 10).size() <= 3) {
+                actionChance /= 4;
+            }
         }
         return (new Random().nextInt(actionChance) == 0);
     }

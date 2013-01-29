@@ -12,20 +12,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 public class EventListener implements Listener {
-    
-    private int sinceCheck;
-    
-    public EventListener() {
-        this.sinceCheck = 0;
-    }
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
-        this.sinceCheck++;
-        if (this.sinceCheck < 100) {
-            return;
-        }
-        this.sinceCheck = 0;
         if (Util.shouldAct(event.getPlayer())) {
             IAction action = Herobrine.getActionManager().getRegisteredActions().get(new Random().nextInt(Herobrine.getActionManager().getRegisteredActions().size() - 1));
             if (!action.getType().equals(ActionType.STANDARD)) {
