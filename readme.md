@@ -1,3 +1,3 @@
-Herobrined
+Herobrine
 ====================
-Herobrined is a recode of Herobrine, the infamous CraftBukkit plugin that brings back the legend.
+This is a recode of Herobrine, the infamous CraftBukkit plugin that brings back the legend.
