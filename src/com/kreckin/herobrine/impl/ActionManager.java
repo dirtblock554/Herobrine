@@ -4,6 +4,7 @@ import com.kreckin.herobrine.Herobrine;
 import com.kreckin.herobrine.actions.BatAttack;
 import com.kreckin.herobrine.actions.BuryPlayer;
 import com.kreckin.herobrine.actions.CreateGrave;
+import com.kreckin.herobrine.actions.CreatePyramid;
 import com.kreckin.herobrine.actions.CreateRingOfFire;
 import com.kreckin.herobrine.actions.CreateTNTTrap;
 import com.kreckin.herobrine.actions.DestroyTorches;
@@ -36,6 +37,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new PossessPlayer());
         this.registerAction(new WolfAttack());
         this.registerAction(new BatAttack());
+        this.registerAction(new CreatePyramid());
     }
 
     public final void registerAction(IAction action) {
