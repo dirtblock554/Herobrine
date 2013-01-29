@@ -1,11 +1,11 @@
-package com.kreckin.herobrined.actions;
+package com.kreckin.herobrine.actions;
 
-import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.api.IActionResult;
-import com.kreckin.herobrined.impl.Action;
-import com.kreckin.herobrined.impl.ActionResult;
-import com.kreckin.herobrined.impl.ActionType;
-import com.kreckin.herobrined.util.Util;
+import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.api.IActionResult;
+import com.kreckin.herobrine.impl.Action;
+import com.kreckin.herobrine.impl.ActionResult;
+import com.kreckin.herobrine.impl.ActionType;
+import com.kreckin.herobrine.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class BuryPlayer extends Action {
             top.setType(Material.AIR);
             middle.setType(Material.AIR);
             bottom.setType(Material.AIR);
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Herobrined.getInstance(), new Runnable() {
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Herobrine.getInstance(), new Runnable() {
                 
                 @Override
                 public void run() {

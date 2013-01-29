@@ -1,6 +1,6 @@
-package com.kreckin.herobrined.impl;
+package com.kreckin.herobrine.impl;
 
-import com.kreckin.herobrined.api.IActionResult;
+import com.kreckin.herobrine.api.IActionResult;
 
 public class ActionResult implements IActionResult {
 

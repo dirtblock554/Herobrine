@@ -1,18 +1,18 @@
-package com.kreckin.herobrined.impl;
+package com.kreckin.herobrine.impl;
 
-import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.actions.BuryPlayer;
-import com.kreckin.herobrined.actions.CreateGrave;
-import com.kreckin.herobrined.actions.CreateRingOfFire;
-import com.kreckin.herobrined.actions.CreateTNTTrap;
-import com.kreckin.herobrined.actions.DestroyTorches;
-import com.kreckin.herobrined.actions.PlaceSign;
-import com.kreckin.herobrined.actions.PlaceTorch;
-import com.kreckin.herobrined.actions.PossessPlayer;
-import com.kreckin.herobrined.actions.RearrangeInventory;
-import com.kreckin.herobrined.actions.StealItem;
-import com.kreckin.herobrined.api.IAction;
-import com.kreckin.herobrined.api.IActionManager;
+import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.actions.BuryPlayer;
+import com.kreckin.herobrine.actions.CreateGrave;
+import com.kreckin.herobrine.actions.CreateRingOfFire;
+import com.kreckin.herobrine.actions.CreateTNTTrap;
+import com.kreckin.herobrine.actions.DestroyTorches;
+import com.kreckin.herobrine.actions.PlaceSign;
+import com.kreckin.herobrine.actions.PlaceTorch;
+import com.kreckin.herobrine.actions.PossessPlayer;
+import com.kreckin.herobrine.actions.RearrangeInventory;
+import com.kreckin.herobrine.actions.StealItem;
+import com.kreckin.herobrine.api.IAction;
+import com.kreckin.herobrine.api.IActionManager;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -36,7 +36,7 @@ public class ActionManager implements IActionManager {
 
     public final void registerAction(IAction action) {
         this.actions.add(action);
-        Herobrined.log("Registered Action: " + action.getClass().getSimpleName(), Level.INFO);
+        Herobrine.log("Registered Action: " + action.getClass().getSimpleName(), Level.INFO);
     }
 
     public ArrayList<IAction> getRegisteredActions() {

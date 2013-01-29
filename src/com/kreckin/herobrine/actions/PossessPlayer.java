@@ -1,9 +1,9 @@
-package com.kreckin.herobrined.actions;
+package com.kreckin.herobrine.actions;
 
-import com.kreckin.herobrined.api.IActionResult;
-import com.kreckin.herobrined.impl.Action;
-import com.kreckin.herobrined.impl.ActionResult;
-import com.kreckin.herobrined.impl.ActionType;
+import com.kreckin.herobrine.api.IActionResult;
+import com.kreckin.herobrine.impl.Action;
+import com.kreckin.herobrine.impl.ActionResult;
+import com.kreckin.herobrine.impl.ActionType;
 import java.util.Random;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;

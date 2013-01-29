@@ -1,4 +1,4 @@
-package com.kreckin.herobrined.api;
+package com.kreckin.herobrine.api;
 
 import java.util.ArrayList;
 

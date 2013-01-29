@@ -1,10 +1,10 @@
-package com.kreckin.herobrined.listeners;
+package com.kreckin.herobrine.listeners;
 
-import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.api.IAction;
-import com.kreckin.herobrined.api.IActionResult;
-import com.kreckin.herobrined.impl.ActionType;
-import com.kreckin.herobrined.util.Util;
+import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.api.IAction;
+import com.kreckin.herobrine.api.IActionResult;
+import com.kreckin.herobrine.impl.ActionType;
+import com.kreckin.herobrine.util.Util;
 import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -17,7 +17,7 @@ public class CommandListener implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender cs, Command cmnd, String string, String[] strings) {
         if (!(cs instanceof Player)) {
-            Herobrined.log("You can only use these commands if you are a player!", Level.WARNING);
+            Herobrine.log("You can only use these commands if you are a player!", Level.WARNING);
             return true;
         }
         if (!cs.hasPermission("herobrine.commands") && !cs.isOp()) {
@@ -26,7 +26,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 1 && strings[0].equalsIgnoreCase("help")) {
             String knownActions = "Known actions: ";
-            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrine.getActionManager().getRegisteredActions()) {
                 knownActions += action.getClass().getSimpleName() + ", ";
             }
             knownActions = knownActions.substring(0, knownActions.length() - 2);
@@ -35,7 +35,7 @@ public class CommandListener implements CommandExecutor {
         }
         if (strings.length == 2) {
             IAction foundAction = null;
-            for (IAction action : Herobrined.getActionManager().getRegisteredActions()) {
+            for (IAction action : Herobrine.getActionManager().getRegisteredActions()) {
                 if (action.getClass().getSimpleName().equalsIgnoreCase(strings[0])) {
                     foundAction = action;
                     break;

@@ -1,8 +1,8 @@
-package com.kreckin.herobrined.impl;
+package com.kreckin.herobrine.impl;
 
-import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.api.IAction;
-import com.kreckin.herobrined.api.IActionResult;
+import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.api.IAction;
+import com.kreckin.herobrine.api.IActionResult;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
@@ -16,13 +16,13 @@ public abstract class Action implements IAction {
     
     @Override
     public IActionResult checkAction(Player player, Object[] metadata) {
-        if (Herobrined.getConfigFile().getStringList("Herobrined.disallowedActions").contains(this.getClass().getSimpleName())) {
+        if (Herobrine.getConfigFile().getStringList("Herobrine.disallowedActions").contains(this.getClass().getSimpleName())) {
             return (new ActionResult("Sorry, that action has been disallowed in the configuration file!"));
         }
-        if (Herobrined.getConfigFile().getStringList("Herobrined.disallowedWorlds").contains(player.getWorld().getName())) {
+        if (Herobrine.getConfigFile().getStringList("Herobrine.disallowedWorlds").contains(player.getWorld().getName())) {
             return (new ActionResult("Sorry, that world has been disallowed in the configuration file!"));
         }
-        if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrined.getConfigFile().getBoolean("Herobrined.survivalOnly")) {
+        if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrine.getConfigFile().getBoolean("Herobrine.survivalOnly")) {
             return (new ActionResult("Sorry, the player must be in survival mode."));
         }
         return this.callAction(player, metadata);

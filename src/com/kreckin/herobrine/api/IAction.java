@@ -1,6 +1,6 @@
-package com.kreckin.herobrined.api;
+package com.kreckin.herobrine.api;
 
-import com.kreckin.herobrined.impl.ActionType;
+import com.kreckin.herobrine.impl.ActionType;
 import org.bukkit.entity.Player;
 
 public interface IAction {

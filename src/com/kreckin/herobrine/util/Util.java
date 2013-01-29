@@ -1,6 +1,6 @@
-package com.kreckin.herobrined.util;
+package com.kreckin.herobrine.util;
 
-import com.kreckin.herobrined.Herobrined;
+import com.kreckin.herobrine.Herobrine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 public class Util {
     
     public static boolean shouldAct(Player player) {
-        int actionChance = Herobrined.getConfigFile().getInt("Herobrined.actionChance");
+        int actionChance = Herobrine.getConfigFile().getInt("Herobrine.actionChance");
         if (player.getWorld().getTime() >= 13000 && player.getWorld().getTime() <= 14200) {
             actionChance /= 4;
         }
@@ -24,7 +24,7 @@ public class Util {
     }
     
     public static String getMessage(String path) {
-        List<String> strings = Herobrined.getConfigFile().getStringList(path);
+        List<String> strings = Herobrine.getConfigFile().getStringList(path);
         if (strings.isEmpty()) {
             return null;
         }
@@ -56,6 +56,6 @@ public class Util {
     }
     
     public static String formatString(String message) {
-        return ("[" + ChatColor.RED + "Herobrined" + ChatColor.WHITE + "] " + message);
+        return ("[" + ChatColor.RED + "Herobrine" + ChatColor.WHITE + "] " + message);
     }
 }

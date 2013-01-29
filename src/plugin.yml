@@ -1,10 +1,10 @@
-name: Herobrined
+name: Herobrine
 version: 6.0
-main: com.kreckin.herobrined.Herobrined
+main: com.kreckin.herobrine.Herobrine
 description: I'll never stop.
 author: steaks4uce
 website: http://dev.bukkit.org/server-mods/herobrineunleashed/
 commands:
   hb:
-    description: Herobrined commands.
+    description: Herobrine commands.
     usage: Use /hb

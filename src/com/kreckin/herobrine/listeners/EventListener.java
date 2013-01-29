@@ -1,10 +1,10 @@
-package com.kreckin.herobrined.listeners;
+package com.kreckin.herobrine.listeners;
 
-import com.kreckin.herobrined.Herobrined;
-import com.kreckin.herobrined.api.IAction;
-import com.kreckin.herobrined.api.IActionResult;
-import com.kreckin.herobrined.impl.ActionType;
-import com.kreckin.herobrined.util.Util;
+import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.api.IAction;
+import com.kreckin.herobrine.api.IActionResult;
+import com.kreckin.herobrine.impl.ActionType;
+import com.kreckin.herobrine.util.Util;
 import java.util.Random;
 import java.util.logging.Level;
 import org.bukkit.event.EventHandler;
@@ -27,15 +27,15 @@ public class EventListener implements Listener {
         }
         this.sinceCheck = 0;
         if (Util.shouldAct(event.getPlayer())) {
-            IAction action = Herobrined.getActionManager().getRegisteredActions().get(new Random().nextInt(Herobrined.getActionManager().getRegisteredActions().size() - 1));
+            IAction action = Herobrine.getActionManager().getRegisteredActions().get(new Random().nextInt(Herobrine.getActionManager().getRegisteredActions().size() - 1));
             if (!action.getType().equals(ActionType.STANDARD)) {
                 return;
             }
-            Herobrined.log("Running Action: " + action.getClass().getSimpleName() + " & Player: " + event.getPlayer().getName(), Level.INFO);
+            Herobrine.log("Running Action: " + action.getClass().getSimpleName() + " & Player: " + event.getPlayer().getName(), Level.INFO);
             IActionResult result = action.checkAction(event.getPlayer(), null);
-            Herobrined.log(result.getMessage(), Level.INFO);
+            Herobrine.log(result.getMessage(), Level.INFO);
             if (result.getData() != null) {
-                Herobrined.log("Details: " + result.getData(), Level.INFO);
+                Herobrine.log("Details: " + result.getData(), Level.INFO);
             }
         }
     }
