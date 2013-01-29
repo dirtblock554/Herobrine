@@ -20,7 +20,9 @@ public class WolfAttack extends Action {
     public IActionResult callAction(Player player, Object[] metadata) {
         int toSpawn = (new Random().nextInt(3)) + 3;
         for (int wolf = 0; wolf < toSpawn; wolf++) {
-            ((Wolf) player.getWorld().spawnEntity(Util.getNearbyLocation(player, 5), EntityType.WOLF)).setAngry(true);
+            Wolf theWolf = (Wolf) player.getWorld().spawnEntity(Util.getNearbyLocation(player, 5), EntityType.WOLF);
+            theWolf.setAngry(true);
+            theWolf.setTarget(player);
         }
         return (new ActionResult("Done.", "Spawned: " + toSpawn));
     }
