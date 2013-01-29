@@ -1,6 +1,7 @@
 nbproject/
 lib/
-dist/
+dist/README.txt
+dist/lib/
 build/
 build.xml
 manifest.mf
