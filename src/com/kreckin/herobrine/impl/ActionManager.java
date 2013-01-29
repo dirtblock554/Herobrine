@@ -47,7 +47,7 @@ public class ActionManager implements IActionManager {
         Herobrine.log("Registered Action: " + action.getClass().getSimpleName(), Level.INFO);
     }
 
-    public ArrayList<IAction> getRegisteredActions() {
+    public ArrayList<IAction> getActions() {
         return this.actions;
     }
 }

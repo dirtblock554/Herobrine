@@ -6,5 +6,5 @@ public interface IActionManager {
 
     public void registerAction(IAction action);
 
-    public ArrayList<IAction> getRegisteredActions();
+    public ArrayList<IAction> getActions();
 }
