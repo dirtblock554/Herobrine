@@ -10,6 +10,7 @@ import com.kreckin.herobrine.actions.CreateTNTTrap;
 import com.kreckin.herobrine.actions.DestroyTorches;
 import com.kreckin.herobrine.actions.PlaceSign;
 import com.kreckin.herobrine.actions.PlaceTorch;
+import com.kreckin.herobrine.actions.PlaySound;
 import com.kreckin.herobrine.actions.PossessPlayer;
 import com.kreckin.herobrine.actions.RearrangeInventory;
 import com.kreckin.herobrine.actions.StealItem;
@@ -38,6 +39,7 @@ public class ActionManager implements IActionManager {
         this.registerAction(new WolfAttack());
         this.registerAction(new BatAttack());
         this.registerAction(new CreatePyramid());
+        this.registerAction(new PlaySound());
     }
 
     public final void registerAction(IAction action) {
