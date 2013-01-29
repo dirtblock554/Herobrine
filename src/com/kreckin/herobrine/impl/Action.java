@@ -26,6 +26,9 @@ public abstract class Action implements IAction {
         if (!player.getGameMode().equals(GameMode.SURVIVAL) && Herobrine.getConfigFile().getBoolean("Herobrine.survivalOnly")) {
             return (new ActionResult("Sorry, the player must be in survival mode."));
         }
+        if (player.hasPermission("herobrine.ignore")) {
+            return (new ActionResult("Sorry, the player cannot have the \"herobrine.ignore\" permissions node!"));
+        }
         Herobrine.log("Running Action: " + this.getClass().getSimpleName() + " & Player: " + player.getName(), Level.INFO);
         IActionResult result = this.callAction(player, metadata);
         Herobrine.log(result.getMessage(), Level.INFO);
