@@ -1,6 +1,7 @@
 package com.kreckin.herobrine.impl;
 
 import com.kreckin.herobrine.Herobrine;
+import com.kreckin.herobrine.actions.BatAttack;
 import com.kreckin.herobrine.actions.BuryPlayer;
 import com.kreckin.herobrine.actions.CreateGrave;
 import com.kreckin.herobrine.actions.CreateRingOfFire;
@@ -11,6 +12,7 @@ import com.kreckin.herobrine.actions.PlaceTorch;
 import com.kreckin.herobrine.actions.PossessPlayer;
 import com.kreckin.herobrine.actions.RearrangeInventory;
 import com.kreckin.herobrine.actions.StealItem;
+import com.kreckin.herobrine.actions.WolfAttack;
 import com.kreckin.herobrine.api.IAction;
 import com.kreckin.herobrine.api.IActionManager;
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class ActionManager implements IActionManager {
         this.registerAction(new StealItem());
         this.registerAction(new RearrangeInventory());
         this.registerAction(new PossessPlayer());
+        this.registerAction(new WolfAttack());
+        this.registerAction(new BatAttack());
     }
 
     public final void registerAction(IAction action) {
