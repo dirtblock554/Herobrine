@@ -1,7 +1,7 @@
 Herobrine:
   
   # Should we ignore players not in survival mode?
-  survivalOnly: true
+  survivalOnly: false
   
   # What is the chance something should happen? (1 in X every time a player moves)
   actionChance: 150000
@@ -10,31 +10,31 @@ Herobrine:
   heavierEquation: false
 
   # What should his name be?
-  entityName: Herobrine
+  entityName:
  
   # What messages can he put on the signs he places?
   signMessages:
     - I'm watching.
     - Stop.
-    - I'm here.
+    - im back.
     - Never forget.
-    - Brightness.
+    - right behinde you.
     
   # What messages should he say when an altar is lit?
   altarMessages:
-    - I am your God!
-    - I will always prevail!
-    - Never doubt my power!
+    - you should have not done that!
+    - you should have not done that!
+    - well goodbye!
     - Where is your God now?
-    - Water, water, water...
-    - Look into my eyes!
+    - Shame, shame, shame...
+    - join my side!
     
   # What can he write in the books?
   bookMessages:
-    - You.
-    - Expect me.
+    - right behind you.
+    - come to me.
     - You'll just be another victim...
-    - One more name on the list.
+    - One more name on the list []you.
 
   # What actions aren't allowed? (Type /hb help ingame to view all actions)
   disallowedActions:
