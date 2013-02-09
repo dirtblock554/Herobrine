@@ -1,10 +1,10 @@
 Herobrine:
   
   # Should we ignore players not in survival mode?
-  survivalOnly: true
+  survivalOnly: false
   
   # What is the chance something should happen? (1 in X every time a player moves)
-  actionChance: 150000
+  actionChance: 150009
   
   # This is a more advanced equation to choose events, it may cause lag.
   heavierEquation: false
@@ -18,21 +18,21 @@ Herobrine:
     - Stop.
     - I'm here.
     - Never forget.
-    - Brightness.
+    - Death will come.
     
   # What messages should he say when an altar is lit?
   altarMessages:
     - I am your God!
     - I will always prevail!
     - Never doubt my power!
-    - Where is your God now?
+    - you should have not done that..
     - Water, water, water...
     - Look into my eyes!
     
   # What can he write in the books?
   bookMessages:
     - You.
-    - Expect me.
+    - im coming.
     - You'll just be another victim...
     - One more name on the list.
 
